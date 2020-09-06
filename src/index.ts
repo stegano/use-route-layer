@@ -8,16 +8,16 @@ const useIsomorphicEffect = globalThis ? useLayoutEffect : useEffect;
  * useRouteLayer
  * @param [$component=null]
  * @param [url=''] 
- * @param [qsLayersName="__layers__"] 
+ * @param [qsLayersName="layers"] 
  * @param [qsLayerId="layerId"] 
  * @param [pushFn=(url: string) => any] 
  * @param [backFn=() => any] 
  */
-const useRouteLayer = (
+function useRouteLayer<T extends JSX.Element | null> (
   /**
    * Layer component to be displayed on the screen.
    */
-  $component: JSX.Element| null = null,
+  $component: T = null,
   /**
    * URL information including QueryString.
    */
@@ -25,7 +25,7 @@ const useRouteLayer = (
   /**
    * The name of the queryParameter to use as the `layerName`.
    */
-  qsLayersName: string = '__layers__',
+  qsLayersName: string = 'layers',
   /**
    * The name to use as the `layerId` value.
    */
@@ -39,11 +39,11 @@ const useRouteLayer = (
    */
   backFn: () => any,
 ) : [
-  JSX.Element | null,
+  T,
   Function,
   Function,
   boolean
-] => {
+] {
   const [isShowLayer, setShowLayer] = useState<boolean>(false);
 
   useIsomorphicEffect(() => {
@@ -111,7 +111,7 @@ const useRouteLayer = (
     return false;
   };
 
-  const LayerComponent: JSX.Element | null = isShowLayer ? $component : null;
+  const LayerComponent = isShowLayer ? $component : null;
   return [
     /**
      * It is a `LayerComponent` entered as a factor. This component may or may not be displayed depending on the URL state.
