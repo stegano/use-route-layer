@@ -1,6 +1,6 @@
 {
   "name": "use-router-layer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.",
   "main": "dist/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/stegano/use-router-layer"
+    "url": "https://github.com/stegano/use-router-layer.git"
   },
   "bugs": {
     "url": "https://github.com/stegano/use-router-layer/issues"
