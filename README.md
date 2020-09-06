@@ -2,7 +2,7 @@
 > This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.
 
 ![Example](samples/screenshot.gif)
-> A greeting Layer is displayed or not displayed depending on the URL change.
+> A greeting layer is displayed or not displayed depending on the URL change.
 
 ## Installation
 
@@ -82,31 +82,31 @@ import useRouterLayer from 'use-router-layer/use-router-layer-for-nextjs'
 // or import useRouterLayer from 'use-router-layer/use-router-layer-for-react';
 ...
 
-import EventLayer from 'src/layers/event';
+import EventLayer from 'src/layers/greeting';
 const Component = () => {
   const [
-    $layerComponent, showLayer, closeLayer
+    $greeting, showLayer, closeLayer
   ] = useRouterLayer<JSX.Element>(
-    <EventLayer/>, 'layersName', 'event',
+    <EventLayer/>, 'layers', 'greeting',
   );
 
   const handleClickShowLayer = () => {
     /**
-     * When the code below is executed, your browser URL will be `/?layersName=event` and the `EventLayer` component displayed.
+     * When the code below is executed, your browser URL will be `/?layers=greeting` and the `GreetingLayer` component displayed.
      */
     showLayer();
   };
 
   const handleClickCloseLayer = () => {
     /**
-     *  When the code below is executed, `/?layersName=event` will be removed from your browser URL, and `EventLayer` component will not be displayed.
+     *  When the code below is executed, `/?layers=greeting` will be removed from your browser URL, and `GreetingLayer` component will not be displayed.
      */
     closeLayer();
   };
 
   return (
     ...
-    {$layerComponent}
+    {$greeting}
     ...
   )
 };
