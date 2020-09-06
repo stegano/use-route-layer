@@ -34,5 +34,6 @@
   },
   "bugs": {
     "url": "https://github.com/stegano/use-router-layer/issues"
-  }
+  },
+  "types": "./src/index.d.ts"
 }
