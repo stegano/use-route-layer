@@ -27,5 +27,12 @@
     "react-router-layer",
     "next-router",
     "next-router-layer"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stegano/use-router-layer"
+  },
+  "bugs": {
+    "url": "https://github.com/stegano/use-router-layer/issues"
+  }
 }
