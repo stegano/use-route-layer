@@ -4,5 +4,6 @@
     "minify",
     ["@babel/preset-env", { "targets": "defaults" }]
   ],
-  "comments": false
+  "comments": false,
+  "ignore": ["**/*.d.ts"]
 }

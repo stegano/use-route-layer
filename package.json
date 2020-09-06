@@ -4,7 +4,7 @@
   "description": "This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --extensions \".ts\"",
+    "build": "rm -rf ./dist && babel src --out-dir dist --extensions \".ts\"",
     "publish": "npm run build && npm publish"
   },
   "author": "Yongwoo Jung<stegano@naver.com>",
