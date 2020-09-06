@@ -1,0 +1,31 @@
+{
+  "name": "use-router-layer",
+  "version": "1.0.0",
+  "description": "This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions \".ts\"",
+    "publish": "npm run build && npm publish"
+  },
+  "author": "Yongwoo Jung<stegano@naver.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.49",
+    "query-string": "^6.13.1",
+    "react": "^16.13.1"
+  },
+  "keywords": [
+    "layer",
+    "react-router",
+    "react-router-layer",
+    "next-router",
+    "next-router-layer"
+  ]
+}
