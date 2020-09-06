@@ -78,8 +78,8 @@ return [
 // component.tsx
 
 import React from 'react';
-import useRouterLayer from 'use-router-layer/use-router-layer-for-nextjs'
-// or import useRouterLayer from 'use-router-layer/use-router-layer-for-react';
+import useRouterLayer from 'use-router-layer/src/use-router-layer-for-nextjs'
+// or import useRouterLayer from 'use-router-layer/src/use-router-layer-for-react';
 ...
 
 import EventLayer from 'src/layers/greeting';
