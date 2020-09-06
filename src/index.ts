@@ -13,11 +13,11 @@ const useIsomorphicEffect = globalThis ? useLayoutEffect : useEffect;
  * @param [pushFn=(url: string) => any] 
  * @param [backFn=() => any] 
  */
-function useRouteLayer<T extends JSX.Element | null> (
+const useRouteLayer = <T extends JSX.Element | null> (
   /**
    * Layer component to be displayed on the screen.
    */
-  $component: T = null,
+  $component: T | null = null,
   /**
    * URL information including QueryString.
    */
@@ -43,7 +43,7 @@ function useRouteLayer<T extends JSX.Element | null> (
   Function,
   Function,
   boolean
-] {
+] => {
   const [isShowLayer, setShowLayer] = useState<boolean>(false);
 
   useIsomorphicEffect(() => {

@@ -1,5 +1,5 @@
 # use-router-layer
-This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.
+> This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.
 
 ![Example](samples/screenshot.gif)
 > A greeting Layer is displayed or not displayed depending on the URL change.
@@ -74,74 +74,19 @@ return [
 ```
 
 ## Usage
-### for React
-```ts
-// use-router-layer-for-react.ts
-
-import { useHistory, useLocation } from 'react-router-dom';
-import useRouterLayer from 'use-router-layer';
-
-const useRouterLayerForNextjs = (
-  $layerComponent: JSX.Element | null = null,
-  url: string,
-  qsLayersName: string = 'layersName',
-  qsLayerId: string = 'myLayerId',
-) => {
-  const location = useLocation();
-  return useRouterLayer(
-    $layerComponent,
-    location.search,
-    qsLayersName,
-    qsLayerId,
-    (urlWithQuery: string) => {
-      useHistory.go(urlWithQuery);
-    }, useHistory.goBack,
-  )
-};
-
-export default useRouterLayerForNextjs;
-```
-### for Next.js
-```ts
-// use-router-layer-for-nextjs.ts
-
-import { useRouter } from 'next/router';
-import useRouterLayer from 'use-router-layer';
-
-const useRouterLayerForNextjs = (
-  $layerComponent: JSX.Element | null = null,
-  url: string,
-  qsLayersName: string = 'layersName',
-  qsLayerId: string = 'myLayerId',
-) => {
-  const router = useRouter();
-  return useRouterLayer(
-    $layerComponent,
-    router.asPath,
-    qsLayersName,
-    qsLayerId,
-    (urlWithQuery: string) => {
-      router.push(urlWithQuery, undefined, {
-        shallow: true,
-      });
-    }, router.back,
-  );
-}
-
-export default useRouterLayerForNextjs;
-```
-### Using in Component
 ```ts
 // component.tsx
 
 import React from 'react';
-import useRouterLayer from 'src/hooks/use-router-layer-for-nextjs' or 'src/hooks/use-router-layer-for-rejct';
+import useRouterLayer from 'use-router-layer/use-router-layer-for-nextjs'
+// or import useRouterLayer from 'use-router-layer/use-router-layer-for-react';
 ...
+
 import EventLayer from 'src/layers/event';
 const Component = () => {
   const [
     $layerComponent, showLayer, closeLayer
-  ] = useRouterLayer(
+  ] = useRouterLayer<JSX.Element>(
     <EventLayer/>, 'layersName', 'event',
   );
 
