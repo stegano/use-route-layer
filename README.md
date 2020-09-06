@@ -54,11 +54,11 @@ const useRouterLayer = (
   ...
 return [
     /**
-     * It is a `LayerComponent` entered as a factor. This component may or may not be displayed depending on the URL state.
+     * It is a `$layerComponent` entered as a factor. This component may or may not be displayed depending on the URL state.
      */
-    LayerComponent, 
+    $layerComponent, 
     /**
-     * Changes the URL state so that the `LayerComponent` can be displayed on the screen.
+     * Changes the URL state so that the `$layerComponent` can be displayed on the screen.
      */
     showLayer, 
     /**
@@ -82,12 +82,12 @@ import useRouterLayer from 'use-router-layer/src/use-router-layer-for-nextjs'
 // or import useRouterLayer from 'use-router-layer/src/use-router-layer-for-react';
 ...
 
-import EventLayer from 'src/layers/greeting';
+import GreetingLayer from 'src/layers/greeting';
 const Component = () => {
   const [
     $greeting, showLayer, closeLayer
   ] = useRouterLayer<JSX.Element>(
-    <EventLayer/>, 'layers', 'greeting',
+    <GreetingLayer/>, 'layers', 'greeting',
   );
 
   const handleClickShowLayer = () => {
