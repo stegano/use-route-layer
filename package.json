@@ -1,6 +1,6 @@
 {
   "name": "use-router-layer",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "This library is a react hook library that facilitates layer management. It can easily control layer displayed through the browser's `backward` or `forward` functions by mapping layer information displayed on the screen to URL information.",
   "main": "dist/index.js",
   "scripts": {
