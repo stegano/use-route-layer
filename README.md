@@ -78,15 +78,62 @@ return [
 // component.tsx
 
 import React from 'react';
-import useRouterLayer from 'use-router-layer/src/use-router-layer-for-nextjs'
-// or import useRouterLayer from 'use-router-layer/src/use-router-layer-for-react';
+import useRouterLayer from 'use-router-layer'
+import GreetingLayer from 'src/layers/greeting';
 ...
 
-import GreetingLayer from 'src/layers/greeting';
+/**
+ * useRouterLayerForReact
+ * @param $layerComponent 
+ * @param qsLayersName 
+ * @param qsLayerId 
+ */
+const useRouterLayerForReact = <T extends JSX.Element | null>(
+  $layerComponent: T | null = null,
+  qsLayersName: string = 'layers',
+  qsLayerId: string = 'myLayerId',
+) => {
+  const location = useLocation();
+  return useRouterLayer(
+    $layerComponent,
+    location.search,
+    qsLayersName,
+    qsLayerId,
+    (urlWithQuery: string) => {
+      useHistory.go(urlWithQuery);
+    }, useHistory.goBack,
+  )
+};
+
+/**
+ * useRouterLayerForNextjs
+ * @param $layerComponent 
+ * @param qsLayersName 
+ * @param qsLayerId 
+ */
+const useRouterLayerForNextjs = <T extends JSX.Element | null> (
+  $layerComponent: T | null = null,
+  qsLayersName: string = 'layers',
+  qsLayerId: string = 'myLayerId',
+) => {
+  const router = useRouter();
+  return useRouterLayer(
+    $layerComponent,
+    router.asPath,
+    qsLayersName,
+    qsLayerId,
+    (urlWithQuery: string) => {
+      router.push(urlWithQuery, undefined, {
+        shallow: true,
+      });
+    }, router.back,
+  );
+}
+
 const Component = () => {
   const [
     $greeting, showLayer, closeLayer
-  ] = useRouterLayer<JSX.Element>(
+  ] = useRouterLayerForNextjs<JSX.Element>( // or useRouterLayerForReact
     <GreetingLayer/>, 'layers', 'greeting',
   );
 
