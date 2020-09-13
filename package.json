@@ -14,13 +14,13 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^16.9.49",
     "babel-preset-minify": "^0.5.1",
     "next": "^9.5.3",
-    "@types/react": "^16.9.49"
+    "react": "^16.13.1"
   },
   "dependencies": {
     "query-string": "^6.13.1",
-    "react": "^16.13.1",
     "react-router-dom": "^5.2.0"
   },
   "keywords": [
