@@ -39,7 +39,7 @@ const useRouteLayer = <T extends JSX.Element | null> (
    */
   backFn: () => any,
 ) : [
-  T,
+  T | null,
   Function,
   Function,
   boolean
